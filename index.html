@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>East Hidd Cafe</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="card">
+            <!-- Shop Name -->
+            <h1 class="shop-name-en">East Hidd Cafe</h1>
+            <h2 class="shop-name-ar">مقهى شرق الحد</h2>
+
+            <!-- Logo -->
+            <img src="logo.jpg" alt="East Hidd Cafe Logo" class="logo">
+
+            <!-- Pickup Button Only -->
+            <a href="pickup.html"><button class="option">اطلب الآن واستلم طلبك من المحل📦</button></a>
+        </div>
+    </div>
+
+    <!-- Small Admin Login Link -->
+    <a href="javascript:void(0)" id="admin-login-btn">Admin Login</a>
+
+    <!-- Admin Login Modal -->
+    <div id="login-modal">
+        <div class="login-content">
+            <h3>تسجيل الدخول للإدارة</h3>
+            <input type="text" id="admin-username" placeholder="اسم المستخدم">
+            <input type="password" id="admin-password" placeholder="كلمة المرور">
+            <button id="login-btn">دخول</button>
+            <p id="login-error">اسم المستخدم أو كلمة المرور غير صحيحة</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

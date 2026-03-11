@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة الطلبات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pickup.css">
+</head>
+
+<body>
+
+    <!-- SIDE MENU -->
+    <div id="side-menu" class="side-menu">
+
+        <a href="javascript:void(0)" class="close-btn">&times;</a>
+
+        <a href="index.html">🏠 الرئيسية</a>
+
+        <a href="pickup.html">📦 منتجاتنا</a>
+
+        <a href="contact.html">📞 إتصل بنا</a>
+
+        <a href="cart.html">🛒 سلة التسوق</a>
+
+    </div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <div class="menu-icon" id="menu-button">☰</div>
+
+        <a href="index.html">
+            <img src="logo.jpg" class="header-logo">
+        </a>
+
+        <div class="header-right">
+            <div class="cart">🛒 <span id="cart-count">0</span></div>
+            <span class="separator">|</span>
+            <div class="today-date" id="today-date"></div>
+        </div>
+
+    </header>
+
+
+    <!-- SLIDER -->
+    <div class="slider">
+
+        <img src="food1.jpg" class="slide active">
+        <img src="food2.jpg" class="slide">
+        <img src="food3.jpg" class="slide">
+
+        <img src="logo.jpg" class="slider-logo">
+
+        <div class="pickup-notice-overlay">
+            ⚠️ خدمة التوصيل غير متوفرة
+        </div>
+
+    </div>
+
+
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input type="text" placeholder="ابحث في القائمة...">
+    </div>
+
+
+    <!-- CATEGORIES -->
+    <div class="categories">
+
+        <button class="active" data-category="all">الكل</button>
+
+        <button data-category="sandwich">سندويشات</button>
+
+        <button data-category="drinks">مشروبات</button>
+
+        <button data-category="sweets">حلويات</button>
+
+    </div>
+
+
+    <!-- MENU -->
+    <div class="menu">
+
+        <!-- Sandwich -->
+        <div class="category-section" id="sandwich">
+            <h2>سندويشات</h2>
+        </div>
+
+
+        <!-- Drinks -->
+        <div class="category-section" id="drinks">
+            <h2>مشروبات</h2>
+        </div>
+
+
+        <!-- Sweets -->
+        <div class="category-section" id="sweets">
+            <h2>حلويات</h2>
+        </div>
+
+    </div>
+
+
+    <script src="pickup.js"></script>
+
+</body>
+
+</html>
