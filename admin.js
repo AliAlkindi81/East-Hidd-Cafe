@@ -1,69 +1,98 @@
 let items = JSON.parse(localStorage.getItem("menuItems")) || [];
+let editId = null;
 
 const addBtn = document.getElementById("addBtn");
-
 addBtn.onclick = addItem;
 
 function addItem() {
 
     let name = document.getElementById("name").value;
-
     let desc = document.getElementById("desc").value;
-
     let price = document.getElementById("price").value;
-
     let category = document.getElementById("category").value;
-
     let offer = document.getElementById("offer").value;
-
     let imageFile = document.getElementById("image").files[0];
 
-    if (!imageFile) {
-
-        alert("يرجى رفع صورة");
-
+    if (!name || !price) {
+        alert("يرجى إدخال اسم المنتج والسعر");
         return;
+    }
 
+    // التحقق من نوع الصورة
+    if (imageFile) {
+        let allowed = ["image/jpeg", "image/png"];
+        if (!allowed.includes(imageFile.type)) {
+            alert("يجب أن تكون الصورة بصيغة JPG أو PNG");
+            return;
+        }
+    }
+
+    // في حالة التعديل بدون تغيير الصورة
+    if (editId && !imageFile) {
+
+        let item = items.find(i => i.id === editId);
+
+        item.name = name;
+        item.desc = desc;
+        item.price = price;
+        item.category = category;
+        item.offer = offer;
+
+        saveItems();
+        resetForm();
+        renderItems();
+        editId = null;
+        return;
+    }
+
+    if (!imageFile && !editId) {
+        alert("يرجى رفع صورة");
+        return;
     }
 
     let reader = new FileReader();
 
     reader.onload = function () {
 
-        let item = {
+        if (editId) {
 
-            id: Date.now(),
+            let item = items.find(i => i.id === editId);
 
-            name: name,
+            item.name = name;
+            item.desc = desc;
+            item.price = price;
+            item.category = category;
+            item.offer = offer;
+            item.image = reader.result;
 
-            desc: desc,
+            editId = null;
 
-            price: price,
+        } else {
 
-            category: category,
+            let item = {
+                id: Date.now(),
+                name: name,
+                desc: desc,
+                price: price,
+                category: category,
+                offer: offer,
+                image: reader.result
+            };
 
-            offer: offer,
+            items.push(item);
+        }
 
-            image: reader.result
-
-        };
-
-        items.push(item);
-
-        localStorage.setItem("menuItems", JSON.stringify(items));
-
+        saveItems();
+        resetForm();
         renderItems();
-
     };
 
     reader.readAsDataURL(imageFile);
-
 }
 
 function renderItems() {
 
     let container = document.getElementById("itemsList");
-
     container.innerHTML = "";
 
     items.forEach(item => {
@@ -97,19 +126,21 @@ ${item.offer ? `<div style="color:red">${item.offer}</div>` : ""}
 </div>
 
 `;
-
     });
-
 }
 
 function deleteItem(id) {
 
+    let item = items.find(i => i.id === id);
+
+    let confirmDelete = confirm(`هل أنت متأكد من حذف المنتج ${item.name} ؟`);
+
+    if (!confirmDelete) return;
+
     items = items.filter(item => item.id !== id);
 
-    localStorage.setItem("menuItems", JSON.stringify(items));
-
+    saveItems();
     renderItems();
-
 }
 
 function editItem(id) {
@@ -117,17 +148,31 @@ function editItem(id) {
     let item = items.find(i => i.id === id);
 
     document.getElementById("name").value = item.name;
-
     document.getElementById("desc").value = item.desc;
-
     document.getElementById("price").value = item.price;
-
     document.getElementById("offer").value = item.offer;
-
     document.getElementById("category").value = item.category;
 
-    deleteItem(id);
+    editId = id;
 
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+}
+
+function resetForm() {
+
+    document.getElementById("name").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("price").value = "";
+    document.getElementById("offer").value = "";
+    document.getElementById("image").value = "";
+    document.getElementById("category").value = "sandwich";
+}
+
+function saveItems() {
+    localStorage.setItem("menuItems", JSON.stringify(items));
 }
 
 renderItems();
