@@ -6,11 +6,11 @@ addBtn.onclick = addItem;
 
 function addItem() {
 
-    let name = document.getElementById("name").value;
-    let desc = document.getElementById("desc").value;
+    let name = document.getElementById("name").value.trim();
+    let desc = document.getElementById("desc").value.trim();
     let price = document.getElementById("price").value;
     let category = document.getElementById("category").value;
-    let offer = document.getElementById("offer").value;
+    let offer = document.getElementById("offer").value.trim();
     let imageFile = document.getElementById("image").files[0];
 
     if (!name || !price) {
@@ -18,16 +18,24 @@ function addItem() {
         return;
     }
 
-    // التحقق من نوع الصورة
+    // التحقق من الصورة
     if (imageFile) {
-        let allowed = ["image/jpeg", "image/png"];
-        if (!allowed.includes(imageFile.type)) {
-            alert("يجب أن تكون الصورة بصيغة JPG أو PNG");
+
+        let allowedTypes = ["image/jpeg", "image/png"];
+
+        if (!allowedTypes.includes(imageFile.type)) {
+            alert("يسمح فقط بصور JPG أو JPEG أو PNG");
+            return;
+        }
+
+        // منع الصور الكبيرة
+        if (imageFile.size > 2 * 1024 * 1024) {
+            alert("حجم الصورة كبير. الحد الأقصى 2MB");
             return;
         }
     }
 
-    // في حالة التعديل بدون تغيير الصورة
+    // تعديل بدون تغيير الصورة
     if (editId && !imageFile) {
 
         let item = items.find(i => i.id === editId);
@@ -39,12 +47,14 @@ function addItem() {
         item.offer = offer;
 
         saveItems();
-        resetForm();
         renderItems();
+        resetForm();
         editId = null;
+
         return;
     }
 
+    // إذا لم توجد صورة عند الإضافة
     if (!imageFile && !editId) {
         alert("يرجى رفع صورة");
         return;
@@ -70,6 +80,7 @@ function addItem() {
         } else {
 
             let item = {
+
                 id: Date.now(),
                 name: name,
                 desc: desc,
@@ -77,14 +88,15 @@ function addItem() {
                 category: category,
                 offer: offer,
                 image: reader.result
+
             };
 
             items.push(item);
         }
 
         saveItems();
-        resetForm();
         renderItems();
+        resetForm();
     };
 
     reader.readAsDataURL(imageFile);
@@ -99,33 +111,33 @@ function renderItems() {
 
         container.innerHTML += `
 
-<div class="item">
+        <div class="item">
 
-<img src="${item.image}">
+            <img src="${item.image}">
 
-<div class="item-info">
+            <div class="item-info">
 
-<b>${item.name}</b>
+                <b>${item.name}</b>
 
-<p>${item.desc}</p>
+                <p>${item.desc}</p>
 
-<span>${item.price} BD</span>
+                <span>${item.price} BD</span>
 
-${item.offer ? `<div style="color:red">${item.offer}</div>` : ""}
+                ${item.offer ? `<div style="color:red">${item.offer}</div>` : ""}
 
-</div>
+            </div>
 
-<div class="actions">
+            <div class="actions">
 
-<button class="edit" onclick="editItem(${item.id})">تعديل</button>
+                <button class="edit" onclick="editItem(${item.id})">تعديل</button>
 
-<button onclick="deleteItem(${item.id})">حذف</button>
+                <button onclick="deleteItem(${item.id})">حذف</button>
 
-</div>
+            </div>
 
-</div>
+        </div>
 
-`;
+        `;
     });
 }
 
@@ -172,7 +184,9 @@ function resetForm() {
 }
 
 function saveItems() {
+
     localStorage.setItem("menuItems", JSON.stringify(items));
+
 }
 
 renderItems();
