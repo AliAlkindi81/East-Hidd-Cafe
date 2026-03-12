@@ -1,11 +1,13 @@
-let items = JSON.parse(localStorage.getItem("menuItems")) || [];
+let items = []; // menu items array
 let editId = null;
 
-const addBtn = document.getElementById("addBtn");
-addBtn.onclick = addItem;
+const CLOUD_NAME = "dsn8j76qs";
+const UPLOAD_PRESET = "East-Hidd-Cafe";
 
+document.getElementById("addBtn").onclick = addItem;
+
+// ADD OR EDIT ITEM
 function addItem() {
-
     let name = document.getElementById("name").value.trim();
     let desc = document.getElementById("desc").value.trim();
     let price = document.getElementById("price").value;
@@ -18,163 +20,118 @@ function addItem() {
         return;
     }
 
-    // التحقق من الصورة
-    if (imageFile) {
-
-        let allowedTypes = ["image/jpeg", "image/png"];
-
-        if (!allowedTypes.includes(imageFile.type)) {
-            alert("يسمح فقط بصور JPG أو JPEG أو PNG");
-            return;
-        }
-
-        // منع الصور الكبيرة
-        if (imageFile.size > 2 * 1024 * 1024) {
-            alert("حجم الصورة كبير. الحد الأقصى 2MB");
-            return;
-        }
+    if (!imageFile && !editId) {
+        alert("يرجى رفع صورة");
+        return;
     }
 
-    // تعديل بدون تغيير الصورة
-    if (editId && !imageFile) {
+    if (imageFile) {
+        // UPLOAD IMAGE TO CLOUDINARY
+        let formData = new FormData();
+        formData.append("file", imageFile);
+        formData.append("upload_preset", UPLOAD_PRESET);
 
+        fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
+            method: "POST",
+            body: formData
+        })
+            .then(res => res.json())
+            .then(data => {
+                let imageURL = data.secure_url;
+                saveItem(name, desc, price, category, offer, imageURL);
+            })
+            .catch(err => {
+                console.error("Upload error:", err);
+                alert("فشل رفع الصورة");
+            });
+    } else {
+        // EDIT ITEM WITHOUT CHANGING IMAGE
         let item = items.find(i => i.id === editId);
-
         item.name = name;
         item.desc = desc;
         item.price = price;
         item.category = category;
         item.offer = offer;
 
-        saveItems();
         renderItems();
         resetForm();
         editId = null;
-
-        return;
+        generateJSONFile();
     }
-
-    // إذا لم توجد صورة عند الإضافة
-    if (!imageFile && !editId) {
-        alert("يرجى رفع صورة");
-        return;
-    }
-
-    let reader = new FileReader();
-
-    reader.onload = function () {
-
-        if (editId) {
-
-            let item = items.find(i => i.id === editId);
-
-            item.name = name;
-            item.desc = desc;
-            item.price = price;
-            item.category = category;
-            item.offer = offer;
-            item.image = reader.result;
-
-            editId = null;
-
-        } else {
-
-            let item = {
-
-                id: Date.now(),
-                name: name,
-                desc: desc,
-                price: price,
-                category: category,
-                offer: offer,
-                image: reader.result
-
-            };
-
-            items.push(item);
-        }
-
-        saveItems();
-        renderItems();
-        resetForm();
-    };
-
-    reader.readAsDataURL(imageFile);
 }
 
-function renderItems() {
+// SAVE ITEM (ADD OR EDIT)
+function saveItem(name, desc, price, category, offer, imageURL) {
+    if (editId) {
+        let item = items.find(i => i.id === editId);
+        item.name = name;
+        item.desc = desc;
+        item.price = price;
+        item.category = category;
+        item.offer = offer;
+        item.image = imageURL;
+        editId = null;
+    } else {
+        items.push({
+            id: Date.now(),
+            name,
+            desc,
+            price,
+            category,
+            offer,
+            image: imageURL
+        });
+    }
+    renderItems();
+    resetForm();
+    generateJSONFile();
+}
 
+// RENDER ITEMS ON ADMIN PAGE
+function renderItems() {
     let container = document.getElementById("itemsList");
     container.innerHTML = "";
 
     items.forEach(item => {
-
         container.innerHTML += `
-
-        <div class="item">
-
-            <img src="${item.image}">
-
-            <div class="item-info">
-
-                <b>${item.name}</b>
-
-                <p>${item.desc}</p>
-
-                <span>${item.price} BD</span>
-
-                ${item.offer ? `<div style="color:red">${item.offer}</div>` : ""}
-
-            </div>
-
-            <div class="actions">
-
-                <button class="edit" onclick="editItem(${item.id})">تعديل</button>
-
-                <button onclick="deleteItem(${item.id})">حذف</button>
-
-            </div>
-
-        </div>
-
+<div class="item">
+    <img src="${item.image}">
+    <div class="item-info">
+        <b>${item.name}</b>
+        <p>${item.desc}</p>
+        <span>${item.price} BD</span>
+        ${item.offer ? `<div style="color:red">${item.offer}</div>` : ""}
+    </div>
+    <div class="actions">
+        <button class="edit" onclick="editItem(${item.id})">تعديل</button>
+        <button onclick="deleteItem(${item.id})">حذف</button>
+    </div>
+</div>
         `;
     });
 }
 
+// DELETE ITEM
 function deleteItem(id) {
-
-    let item = items.find(i => i.id === id);
-
-    let confirmDelete = confirm(`هل أنت متأكد من حذف المنتج ${item.name} ؟`);
-
-    if (!confirmDelete) return;
-
     items = items.filter(item => item.id !== id);
-
-    saveItems();
     renderItems();
+    generateJSONFile();
 }
 
+// EDIT ITEM
 function editItem(id) {
-
     let item = items.find(i => i.id === id);
-
     document.getElementById("name").value = item.name;
     document.getElementById("desc").value = item.desc;
     document.getElementById("price").value = item.price;
     document.getElementById("offer").value = item.offer;
     document.getElementById("category").value = item.category;
-
     editId = id;
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
-    });
+    window.scrollTo({ top: 0, behavior: "smooth" });
 }
 
+// RESET FORM
 function resetForm() {
-
     document.getElementById("name").value = "";
     document.getElementById("desc").value = "";
     document.getElementById("price").value = "";
@@ -183,10 +140,18 @@ function resetForm() {
     document.getElementById("category").value = "sandwich";
 }
 
-function saveItems() {
+// GENERATE JSON FILE FOR PICKUP PAGE
+function generateJSONFile() {
+    if (!items.length) return;
 
-    localStorage.setItem("menuItems", JSON.stringify(items));
-
+    let dataStr = JSON.stringify(items, null, 2);
+    let blob = new Blob([dataStr], { type: "application/json" });
+    let url = URL.createObjectURL(blob);
+    let a = document.createElement("a");
+    a.href = url;
+    a.download = "menu.json";
+    a.click();
 }
 
+// INITIAL RENDER
 renderItems();
