@@ -2,7 +2,8 @@ let items = []; // menu items array
 let editId = null;
 
 const CLOUD_NAME = "dsn8j76qs";
-const UPLOAD_PRESET = "East-Hidd-Cafe";
+const IMAGE_UPLOAD_PRESET = "East-Hidd-Cafe";
+const JSON_UPLOAD_PRESET = "East-Hidd-Cafe-Raw"; // Create a raw upload preset in Cloudinary
 
 document.getElementById("addBtn").onclick = addItem;
 
@@ -26,26 +27,26 @@ function addItem() {
     }
 
     if (imageFile) {
-        // UPLOAD IMAGE TO CLOUDINARY
+        // Upload image to Cloudinary
         let formData = new FormData();
         formData.append("file", imageFile);
-        formData.append("upload_preset", UPLOAD_PRESET);
+        formData.append("upload_preset", IMAGE_UPLOAD_PRESET);
 
         fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`, {
             method: "POST",
             body: formData
         })
-            .then(res => res.json())
-            .then(data => {
-                let imageURL = data.secure_url;
-                saveItem(name, desc, price, category, offer, imageURL);
-            })
-            .catch(err => {
-                console.error("Upload error:", err);
-                alert("فشل رفع الصورة");
-            });
+        .then(res => res.json())
+        .then(data => {
+            let imageURL = data.secure_url;
+            saveItem(name, desc, price, category, offer, imageURL);
+        })
+        .catch(err => {
+            console.error("Upload error:", err);
+            alert("فشل رفع الصورة");
+        });
     } else {
-        // EDIT ITEM WITHOUT CHANGING IMAGE
+        // Edit item without changing image
         let item = items.find(i => i.id === editId);
         item.name = name;
         item.desc = desc;
@@ -56,7 +57,7 @@ function addItem() {
         renderItems();
         resetForm();
         editId = null;
-        generateJSONFile();
+        uploadJSONToCloudinary();
     }
 }
 
@@ -84,7 +85,7 @@ function saveItem(name, desc, price, category, offer, imageURL) {
     }
     renderItems();
     resetForm();
-    generateJSONFile();
+    uploadJSONToCloudinary();
 }
 
 // RENDER ITEMS ON ADMIN PAGE
@@ -115,7 +116,7 @@ function renderItems() {
 function deleteItem(id) {
     items = items.filter(item => item.id !== id);
     renderItems();
-    generateJSONFile();
+    uploadJSONToCloudinary();
 }
 
 // EDIT ITEM
@@ -140,17 +141,22 @@ function resetForm() {
     document.getElementById("category").value = "sandwich";
 }
 
-// GENERATE JSON FILE FOR PICKUP PAGE
-function generateJSONFile() {
+// UPLOAD MENU JSON TO CLOUDINARY
+function uploadJSONToCloudinary() {
     if (!items.length) return;
 
     let dataStr = JSON.stringify(items, null, 2);
-    let blob = new Blob([dataStr], { type: "application/json" });
-    let url = URL.createObjectURL(blob);
-    let a = document.createElement("a");
-    a.href = url;
-    a.download = "menu.json";
-    a.click();
+    let formData = new FormData();
+    formData.append("file", new Blob([dataStr], { type: "application/json" }));
+    formData.append("upload_preset", JSON_UPLOAD_PRESET);
+
+    fetch(`https://api.cloudinary.com/v1_1/${CLOUD_NAME}/raw/upload`, {
+        method: "POST",
+        body: formData
+    })
+    .then(res => res.json())
+    .then(data => console.log("Menu JSON uploaded:", data.secure_url))
+    .catch(err => console.error("Failed to upload JSON:", err));
 }
 
 // INITIAL RENDER
