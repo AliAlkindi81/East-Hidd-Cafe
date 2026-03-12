@@ -1,43 +1,35 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="ar">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <title>لوحة التحكم</title>
-
+    <title>Admin Panel</title>
     <link rel="stylesheet" href="admin.css">
-
 </head>
 
 <body>
 
     <div class="admin-container">
 
-        <h1>لوحة إدارة المنتجات</h1>
+        <h1>إدارة القائمة</h1>
 
         <div class="form-box">
 
+            <input id="name" placeholder="اسم المنتج">
+
+            <textarea id="desc" placeholder="الوصف"></textarea>
+
+            <input id="price" type="number" placeholder="السعر">
+
+            <input id="offer" placeholder="عرض">
+
             <select id="category">
-
-                <option value="sandwich">سندويشات</option>
-
-                <option value="drinks">مشروبات</option>
-
-                <option value="sweets">حلويات</option>
-
+                <option value="sandwich">Sandwich</option>
+                <option value="burger">Burger</option>
+                <option value="drink">Drink</option>
             </select>
 
-            <input type="text" id="name" placeholder="اسم المنتج">
-
-            <textarea id="desc" placeholder="وصف المنتج"></textarea>
-
-            <input type="number" id="price" placeholder="السعر">
-
-            <input type="text" id="offer" placeholder="ملاحظة العرض (اختياري)">
-
-            <input type="file" id="image" accept="image/jpeg,image/png">
+            <input type="file" id="image">
 
             <button id="addBtn">إضافة المنتج</button>
 
@@ -54,4 +46,3 @@
 </body>
 
 </html>
-
