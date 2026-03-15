@@ -72,7 +72,7 @@ body {
     z-index: 2000;
     top: 0;
     left: 0;
-    background-color: #111;
+    background: #111;
     overflow-x: hidden;
     transition: 0.3s;
     padding-top: 60px;
@@ -87,7 +87,7 @@ body {
 }
 
 .side-menu a:hover {
-    background-color: #575757;
+    background: #575757;
 }
 
 .close-btn {
@@ -123,6 +123,15 @@ body {
 
 .item-info {
     flex: 1;
+}
+
+.item-note {
+    margin-top: 5px;
+    width: 100%;
+    padding: 5px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    font-size: 13px;
 }
 
 .qty-controls {
@@ -165,7 +174,7 @@ body {
     margin: 20px;
 }
 
-/* CONTINUE SHOPPING */
+/* BUTTON */
 
 .continue-btn {
     display: block;
