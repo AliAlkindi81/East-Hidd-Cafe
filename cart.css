@@ -6,19 +6,28 @@ body {
     text-align: right;
 }
 
-
 /* HEADER */
 
 .header {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 15px;
-    background: white;
+    padding: 15px 20px;
+    background: #ffffffcc;
+    backdrop-filter: blur(5px);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
     z-index: 1000;
+}
+
+.menu-icon {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 26px;
+    cursor: pointer;
 }
 
 .header-logo {
@@ -27,13 +36,16 @@ body {
 
 .header-right {
     position: absolute;
-    left: 20px;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
     display: flex;
-    gap: 10px;
+    gap: 12px;
+    align-items: center;
 }
 
 .cart {
-    font-size: 20px;
+    font-size: 22px;
 }
 
 #cart-count {
@@ -45,12 +57,45 @@ body {
 }
 
 .today-date {
-    font-size: 13px;
-    background: #eee;
-    padding: 4px 10px;
+    font-size: 14px;
+    background: #f2f2f2;
+    padding: 5px 10px;
     border-radius: 15px;
 }
 
+/* SIDE MENU */
+
+.side-menu {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 2000;
+    top: 0;
+    left: 0;
+    background-color: #111;
+    overflow-x: hidden;
+    transition: 0.3s;
+    padding-top: 60px;
+}
+
+.side-menu a {
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #fff;
+    display: block;
+}
+
+.side-menu a:hover {
+    background-color: #575757;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 30px;
+}
 
 /* TITLE */
 
@@ -59,8 +104,7 @@ body {
     margin-top: 20px;
 }
 
-
-/* CART ITEMS */
+/* CART */
 
 #cart-items {
     padding: 20px;
@@ -106,6 +150,11 @@ body {
     cursor: pointer;
 }
 
+.empty-cart {
+    text-align: center;
+    color: #666;
+    margin-top: 30px;
+}
 
 /* TOTAL */
 
@@ -115,7 +164,6 @@ body {
     font-weight: bold;
     margin: 20px;
 }
-
 
 /* CONTINUE SHOPPING */
 
@@ -130,7 +178,6 @@ body {
     border-radius: 20px;
     text-decoration: none;
 }
-
 
 /* FORM */
 
