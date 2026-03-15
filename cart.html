@@ -5,15 +5,13 @@
     <meta charset="UTF-8">
     <title>سلة التسوق</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="cart.css">
-
 </head>
 
 <body>
 
-    <!-- HEADER -->
     <header class="header">
+
         <div class="menu-icon" id="menu-button">☰</div>
 
         <a href="index.html">
@@ -25,6 +23,7 @@
             <span class="separator">|</span>
             <div class="today-date" id="today-date"></div>
         </div>
+
     </header>
 
     <!-- SIDE MENU -->
@@ -41,18 +40,16 @@
 
     <h1 class="title">🛒 سلة التسوق</h1>
 
-    <!-- CART ITEMS -->
     <div id="cart-items"></div>
 
-    <!-- TOTAL -->
     <div class="cart-total">
         المجموع: <span id="total-price">0</span> BD
     </div>
 
-    <!-- CONTINUE SHOPPING -->
-    <a href="pickup.html" class="continue-btn">⬅ متابعة التسوق</a>
+    <a href="pickup.html" class="continue-btn">
+        ⬅ متابعة التسوق
+    </a>
 
-    <!-- ORDER FORM -->
     <div class="order-form">
 
         <h2>بيانات الطلب</h2>
@@ -60,6 +57,12 @@
         <input type="text" id="customer-name" placeholder="الاسم">
 
         <input type="tel" id="customer-phone" placeholder="رقم الهاتف">
+
+        <label>تاريخ الاستلام</label>
+        <input type="date" id="pickup-date">
+
+        <label>وقت الاستلام</label>
+        <input type="time" id="pickup-time">
 
         <textarea id="customer-note" placeholder="ملاحظات (اختياري)"></textarea>
 
