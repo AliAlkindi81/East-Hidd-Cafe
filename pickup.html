@@ -12,99 +12,222 @@
 
     <!-- SIDE MENU -->
     <div id="side-menu" class="side-menu">
-
         <a href="javascript:void(0)" class="close-btn">&times;</a>
-
         <a href="index.html">🏠 الرئيسية</a>
-
-        <a href="pickup.html">📦 منتجاتنا</a>
-
+        <a href="pickup.html">📦 قائمة الطلبات</a>
         <a href="contact.html">📞 إتصل بنا</a>
-
         <a href="cart.html">🛒 سلة التسوق</a>
-
     </div>
-
 
     <!-- HEADER -->
     <header class="header">
-
         <div class="menu-icon" id="menu-button">☰</div>
-
         <a href="index.html">
             <img src="logo.jpg" class="header-logo">
         </a>
-
         <div class="header-right">
             <div class="cart">🛒 <span id="cart-count">0</span></div>
             <span class="separator">|</span>
             <div class="today-date" id="today-date"></div>
         </div>
-
     </header>
-
 
     <!-- SLIDER -->
     <div class="slider">
-
         <img src="food1.jpg" class="slide active">
         <img src="food2.jpg" class="slide">
         <img src="food3.jpg" class="slide">
-
         <img src="logo.jpg" class="slider-logo">
-
-        <div class="pickup-notice-overlay">
-            ⚠️ خدمة التوصيل غير متوفرة
-        </div>
-
+        <div class="pickup-notice-overlay">⚠️ خدمة التوصيل غير متوفرة</div>
     </div>
-
 
     <!-- SEARCH -->
     <div class="search-box">
         <input type="text" placeholder="ابحث في القائمة...">
     </div>
 
-
     <!-- CATEGORIES -->
     <div class="categories">
-
         <button class="active" data-category="all">الكل</button>
-
         <button data-category="sandwich">سندويشات</button>
-
         <button data-category="drinks">مشروبات</button>
-
         <button data-category="sweets">حلويات</button>
-
     </div>
-
 
     <!-- MENU -->
     <div class="menu">
 
-        <!-- Sandwich -->
+        <!-- Sandwiches -->
         <div class="category-section" id="sandwich">
             <h2>سندويشات</h2>
-        </div>
 
+            <div class="item">
+                <img src="sandwich1.jpg" alt="شاورما دجاج">
+                <div class="item-info">
+                    <h3>شاورما دجاج</h3>
+                    <p>شاورما دجاج لذيذة مع صوص خاص</p>
+                    <div class="item-bottom">
+                        <span class="price">1.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شاورما دجاج" data-price="1.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="sandwich2.jpg" alt="برغر لحم">
+                <div class="item-info">
+                    <h3>برغر لحم</h3>
+                    <p>برغر لحم طازج مع جبن وخس</p>
+                    <div class="item-bottom">
+                        <span class="price">2.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="برغر لحم" data-price="2.0">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="sandwich3.jpg" alt="سندويش جبن">
+                <div class="item-info">
+                    <h3>سندويش جبن</h3>
+                    <p>سندويش جبن مع خضار طازجة</p>
+                    <div class="item-bottom">
+                        <span class="price">1.2 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش جبن" data-price="1.2">إضافة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Drinks -->
         <div class="category-section" id="drinks">
             <h2>مشروبات</h2>
-        </div>
 
+            <div class="item">
+                <img src="drink1.jpg" alt="عصير برتقال">
+                <div class="item-info">
+                    <h3>عصير برتقال</h3>
+                    <p>عصير برتقال طازج 100%</p>
+                    <div class="item-bottom">
+                        <span class="price">0.8 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="عصير برتقال" data-price="0.8">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="drink2.jpg" alt="شاي">
+                <div class="item-info">
+                    <h3>شاي</h3>
+                    <p>شاي ساخن مع لمسة نعناع</p>
+                    <div class="item-bottom">
+                        <span class="price">0.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شاي" data-price="0.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="drink3.jpg" alt="قهوة">
+                <div class="item-info">
+                    <h3>قهوة</h3>
+                    <p>قهوة عربية فاخرة</p>
+                    <div class="item-bottom">
+                        <span class="price">0.7 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="قهوة" data-price="0.7">إضافة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
         <!-- Sweets -->
         <div class="category-section" id="sweets">
             <h2>حلويات</h2>
-        </div>
 
+            <div class="item">
+                <img src="sweet1.jpg" alt="كنافة">
+                <div class="item-info">
+                    <h3>كنافة</h3>
+                    <p>كنافة طازجة مع الجبن</p>
+                    <div class="item-bottom">
+                        <span class="price">1.2 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="كنافة" data-price="1.2">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="sweet2.jpg" alt="بقلاوة">
+                <div class="item-info">
+                    <h3>بقلاوة</h3>
+                    <p>بقلاوة محشوة بالمكسرات</p>
+                    <div class="item-bottom">
+                        <span class="price">1.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="بقلاوة" data-price="1.0">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="sweet3.jpg" alt="فطيرة شوكولاتة">
+                <div class="item-info">
+                    <h3>فطيرة شوكولاتة</h3>
+                    <p>فطيرة بالشوكولاتة الفاخرة</p>
+                    <div class="item-bottom">
+                        <span class="price">1.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="فطيرة شوكولاتة" data-price="1.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
 
-
     <script src="pickup.js"></script>
-
 </body>
 
 </html>
