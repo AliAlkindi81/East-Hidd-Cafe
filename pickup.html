@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <title>قائمة الطلبات</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="pickup.css">
+</head>
+
+<body>
+
+    <!-- SIDE MENU -->
+    <div id="side-menu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn">&times;</a>
+        <a href="index.html">🏠 الرئيسية</a>
+        <a href="pickup.html">📦 قائمة الطلبات</a>
+        <a href="contact.html">📞 إتصل بنا</a>
+        <a href="cart.html">🛒 سلة التسوق</a>
+    </div>
+
+    <!-- HEADER -->
+    <header class="header">
+        <div class="menu-icon" id="menu-button">☰</div>
+        <a href="index.html">
+            <img src="images/logo.jpg" class="header-logo">
+        </a>
+        <div class="header-right">
+            <div class="cart">🛒 <span id="cart-count">0</span></div>
+            <span class="separator">|</span>
+            <div class="today-date" id="today-date"></div>
+        </div>
+    </header>
+
+    <!-- SLIDER -->
+    <div class="slider">
+        <img src="images/slider/1.jpg" class="slide active">
+        <img src="images/slider/2.jpg" class="slide">
+        <img src="images/slider/3.jpg" class="slide">
+        <img src="images/slider/4.jpg" class="slide">
+        <img src="images/slider/5.jpg" class="slide">
+        <img src="images/logo.jpg" class="slider-logo">
+        <div class="pickup-notice-overlay">⚠️ خدمة التوصيل غير متوفرة</div>
+    </div>
+
+    <!-- SEARCH -->
+    <div class="search-box">
+        <input type="text" placeholder="ابحث في القائمة...">
+    </div>
+
+    <!-- CATEGORIES -->
+    <div class="categories">
+        <button class="active" data-category="all">الكل</button>
+        <button data-category="sandwich">سندويشات</button>
+        <button data-category="container">صحون</button>
+        <button data-category="drinks">مشروبات</button>
+        <button data-category="sweets">حلويات</button>
+        <button data-category="chips">أجباس</button>
+    </div>
+
+    <!-- MENU -->
+    <div class="menu">
+
+        <!-- Sandwiches -->
+        <div class="category-section" id="sandwich">
+            <h2>سندويشات</h2>
+
+            <div class="item">
+                <img src="images/sandwiches/1.jpeg" alt="شاورما دجاج">
+                <div class="item-info">
+                    <h3>شاورما دجاج</h3>
+                    <p>شاورما دجاج لذيذة مع طحينه</p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شاورما دجاج" data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/2.jpeg" alt="سندويش قيمه لحم">
+                <div class="item-info">
+                    <h3>سندويش قيمه لحم</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.25 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش قيمه لحم" data-price="0.25">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/3.jpeg" alt="سندويش ناشف ربيان">
+                <div class="item-info">
+                    <h3>سندويش ناشف ربيان</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش ناشف ربيان" data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/4.jpeg" alt="سندويش قشيد">
+                <div class="item-info">
+                    <h3>سندويش قشيد</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.25 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش قشيد" data-price="0.25">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/5.jpeg" alt="سندويش ناشف خثاق">
+                <div class="item-info">
+                    <h3>سندويش ناشف خثاق</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش ناشف خثاق" data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/6.jpeg" alt="سندويش دنميت ربيان مع جبن">
+                <div class="item-info">
+                    <h3>سندويش دنميت ربيان مع جبن</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name=" " data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/7.jpeg" alt="سندويش كباب لحم مع جبن وجتني">
+                <div class="item-info">
+                    <h3>سندويش كباب لحم مع جبن وجتني</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش كباب لحم مع جبن وجتني"
+                            data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/8.jpeg" alt="سندويش سجق مع جبن">
+                <div class="item-info">
+                    <h3>سندويش سجق مع جبن</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.25 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش سجق مع جبن" data-price="0.25">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/9.jpeg" alt="برجر لحم أو دجاج بالجبن">
+                <div class="item-info">
+                    <h3>برجر لحم أو دجاج بالجبن</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="برجر لحم أو دجاج بالجبن" data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sandwiches/9.jpeg" alt="سندويش كبده بالجبن">
+                <div class="item-info">
+                    <h3>سندويش كبده بالجبن</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.25 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سندويش كبده بالجبن" data-price="0.25">إضافة</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Container -->
+        <div class="category-section" id="container">
+            <h2>صحون</h2>
+
+            <div class="item">
+                <img src="images/container/1.webp" alt="صحن قشيد صغير">
+                <div class="item-info">
+                    <h3>صحن قشيد صغير</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">1.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="صحن قشيد صغير" data-price="1.0">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/container/1.webp" alt="صحن قشيد كبير">
+                <div class="item-info">
+                    <h3>صحن قشيد كبير</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">2.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="صحن قشيد كبير" data-price="2.0">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/container/1.webp" alt="صحن خثاق صغير">
+                <div class="item-info">
+                    <h3>صحن خثاق صغير</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">1.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="صحن خثاق صغير" data-price="1.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/container/1.webp" alt="صحن خثاق كبير">
+                <div class="item-info">
+                    <h3>صحن خثاق كبير</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">3.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="صحن خثاق كبير" data-price="3.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/container/1.webp" alt="صحن ناشف ربيان صغير">
+                <div class="item-info">
+                    <h3>صحن ناشف ربيان صغير</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">1.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="صحن ناشف ربيان صغير" data-price="1.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/container/1.webp" alt="صحن ناشف ربيان كبير">
+                <div class="item-info">
+                    <h3>صحن ناشف ربيان كبير</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">3.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="صحن ناشف ربيان كبير" data-price="3.0">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Drinks -->
+        <div class="category-section" id="drinks">
+            <h2>مشروبات</h2>
+
+            <div class="item">
+                <img src="images/drink/1.webp" alt="ريد بُل إصدار الشتاء">
+                <div class="item-info">
+                    <h3>ريد بُل إصدار الشتاء</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة التوت الأزرق والفانيليا</p>
+                    <span class="item-note">🔥 متوفر اليوم</span>
+                    <div class="item-bottom">
+                        <span class="price">2.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل إصدار الشتاء" data-price="2.0">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/2.webp" alt="ريد بُل إصدار الصيف">
+                <div class="item-info">
+                    <h3>ريد بُل إصدار الصيف</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة الكوروبا وزهر البلسان</p>
+                    <div class="item-bottom">
+                        <span class="price">1.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل إصدار الصيف" data-price="1.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/3.jpg" alt="ريد بُل إصدار الربيع">
+                <div class="item-info">
+                    <h3>ريد بُل إصدار الربيع</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة توت العليق</p>
+                    <div class="item-bottom">
+                        <span class="price">2.0 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل إصدار الربيع" data-price="2.0">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/4.webp" alt="ريد بُل إصدار الخوخ">
+                <div class="item-info">
+                    <h3>ريد بُل إصدار الخوخ</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة الخوخ</p>
+                    <div class="item-bottom">
+                        <span class="price">2.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل إصدار الخوخ" data-price="2.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/5.webp" alt="ريد بُل الإصدار الأزرق">
+                <div class="item-info">
+                    <h3>ريد بُل الإصدار الأزرق</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة التوت الأزرق</p>
+                    <div class="item-bottom">
+                        <span class="price">1.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل الإصدار الأزرق" data-price="1.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/6.jpg" alt="ريد بُل الإصدار البنفسجي">
+                <div class="item-info">
+                    <h3>ريد بُل الإصدار البنفسجي</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة توت الاساي</p>
+                    <div class="item-bottom">
+                        <span class="price">1.3 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل الإصدار البنفسجي" data-price="1.3">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/7.webp" alt="ريد بُل الإصدار الأحمر">
+                <div class="item-info">
+                    <h3>ريد بُل الإصدار الأحمر</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة البطيخ</p>
+                    <div class="item-bottom">
+                        <span class="price">1.3 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل الإصدار الأحمر" data-price="1.3">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/8.webp" alt="ريد بُل إصدار البحر الأزرق">
+                <div class="item-info">
+                    <h3>ريد بُل إصدار البحر الأزرق</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بنكهة الكرز والتوت البري</p>
+                    <div class="item-bottom">
+                        <span class="price">1.5 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل إصدار البحر الأزرق"
+                            data-price="1.5">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/drink/9.webp" alt="ريد بُل الأصلي">
+                <div class="item-info">
+                    <h3>ريد بُل الأصلي</h3>
+                    <p>مشروب الطاقة ذو المذاق الاستثنائي بطعمه الأصلى من غير نكهات</p>
+                    <div class="item-bottom">
+                        <span class="price">1.2 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="ريد بُل الأصلي" data-price="1.2">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Sweets -->
+        <div class="category-section" id="sweets">
+            <h2>حلويات</h2>
+
+            <div class="item">
+                <img src="images/sweet/1.png" alt="أوريو بسكويت الأصلي">
+                <div class="item-info">
+                    <h3>أوريو بسكويت الأصلي</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="أوريو بسكويت الأصلي" data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sweet/2.webp" alt="شوكولاتة كادبوري فليك">
+                <div class="item-info">
+                    <h3>شوكولاتة كادبوري فليك</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شوكولاتة كادبوري فليك" data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sweet/3.png" alt="شيكولاتة كيندر ماكسي">
+                <div class="item-info">
+                    <h3>شيكولاتة كيندر ماكسي</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيكولاتة كيندر ماكسي" data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sweet/4.webp" alt="كيت كات ويفر بالشوكولاتة 2 أصابع">
+                <div class="item-info">
+                    <h3>كيت كات ويفر بالشوكولاتة 2 أصابع</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="كيت كات ويفر بالشوكولاتة 2 أصابع"
+                            data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sweet/5.webp" alt="شيكولاتة تويكس صبع">
+                <div class="item-info">
+                    <h3>شيكولاتة تويكس صبع</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.2 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيكولاتة تويكس صبع" data-price="0.2">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sweet/6.webp" alt="سنيكرز شوكولاتة">
+                <div class="item-info">
+                    <h3>سنيكرز شوكولاتة</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.25 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="سنيكرز شوكولاتة" data-price="0.25">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sweet/7.webp" alt="كندر كاردز">
+                <div class="item-info">
+                    <h3>كندر كاردز</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.3 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="كندر كاردز" data-price="0.3">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/sweet/8.webp" alt="كيندر بوينو شوكولاتة 2 أصابع">
+                <div class="item-info">
+                    <h3>كيندر بوينو شوكولاتة 2 أصابع</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="كيندر بوينو شوكولاتة 2 أصابع"
+                            data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Chips -->
+        <div class="category-section" id="chips">
+            <h2>أجباس</h2>
+
+            <div class="item">
+                <img src="images/chips/1.webp" alt="شيبس تاكيس الطعم الحارق الأصلي">
+                <div class="item-info">
+                    <h3>شيبس تاكيس الطعم الحارق الأصلي</h3>
+                    <p>حجم صغير</p>
+                    <div class="item-bottom">
+                        <span class="price">0.35 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيبس تاكيس الطعم الحارق الأصلي"
+                            data-price="0.35">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/chips/2.jpg" alt="شيبس تاكيس الطعم الحارق الأزرق">
+                <div class="item-info">
+                    <h3>شيبس تاكيس الطعم الحارق الأزرق</h3>
+                    <p>الحجم الصغير</p>
+                    <div class="item-bottom">
+                        <span class="price">0.45 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيبس تاكيس الطعم الحارق الأزرق"
+                            data-price="0.45">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/chips/3.jpg" alt="شيبس دوريتوس حار وحلو">
+                <div class="item-info">
+                    <h3>شيبس دوريتوس حار وحلو</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيبس دوريتوس حار وحلو" data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/chips/4.webp" alt="شيبس دوريتوس بنكهة الجبن">
+                <div class="item-info">
+                    <h3>شيبس دوريتوس بنكهة الجبن</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيبس دوريتوس بنكهة الجبن"
+                            data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/chips/5.webp" alt="شيبس جيتوز حار نار">
+                <div class="item-info">
+                    <h3>شيبس جيتوز حار نار</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيبس جيتوز حار نار" data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="item">
+                <img src="images/chips/6.webp" alt="شيبس جيتوز حار نار بنكهة الليمون">
+                <div class="item-info">
+                    <h3>شيبس جيتوز حار نار بنكهة الليمون</h3>
+                    <p></p>
+                    <div class="item-bottom">
+                        <span class="price">0.15 BD</span>
+                        <div class="qty-box">
+                            <button class="minus">−</button>
+                            <span class="qty">1</span>
+                            <button class="plus">+</button>
+                        </div>
+                        <button class="add-to-cart" data-name="شيبس جيتوز حار نار بنكهة الليمون"
+                            data-price="0.15">إضافة</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="pickup.js"></script>
+</body>
+
+</html>
