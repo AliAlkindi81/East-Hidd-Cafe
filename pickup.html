@@ -65,22 +65,29 @@
         <div class="category-section" id="sandwich">
             <h2>سندويشات</h2>
 
-            <div class="item">
-                <img src="images/sandwiches/1.jpeg" alt="شاورما دجاج">
-                <div class="item-info">
-                    <h3>شاورما دجاج</h3>
-                    <p>شاورما دجاج لذيذة مع طحينه</p>
-                    <div class="item-bottom">
-                        <span class="price">0.35 BD</span>
-                        <div class="qty-box">
-                            <button class="minus">−</button>
-                            <span class="qty">1</span>
-                            <button class="plus">+</button>
-                        </div>
-                        <button class="add-to-cart" data-name="شاورما دجاج" data-price="0.35">إضافة</button>
-                    </div>
-                </div>
+            <div class="item out-of-stock">
+    <div class="image-container">
+        <img src="images/sandwiches/1.jpeg" alt="شاورما دجاج">
+        <div class="overlay">نفذت الكمية</div>
+    </div>
+
+    <div class="item-info">
+        <h3>شاورما دجاج</h3>
+        <p>شاورما دجاج لذيذة مع طحينه</p>
+
+        <div class="item-bottom">
+            <span class="price">0.35 BD</span>
+
+            <div class="qty-box">
+                <button class="minus" disabled>−</button>
+                <span class="qty">0</span>
+                <button class="plus" disabled>+</button>
             </div>
+
+            <button class="add-to-cart" disabled>نفذت الكمية</button>
+        </div>
+    </div>
+</div>
 
             <div class="item">
                 <img src="images/sandwiches/2.jpeg" alt="سندويش قيمه لحم">
