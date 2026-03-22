@@ -117,3 +117,23 @@ document.querySelectorAll(".item img").forEach(img => {
 // Close lightbox
 closeLightbox.onclick = () => lightbox.style.display = "none";
 lightbox.onclick = (e) => { if (e.target === lightbox) lightbox.style.display = "none"; };
+document.querySelectorAll('.item').forEach(item => {
+    const status = item.dataset.status;
+    const note = item.querySelector('.item-note');
+    const button = item.querySelector('.add-to-cart');
+
+    if (status === "available") {
+        note.textContent = "🔥 متوفر اليوم";
+        button.disabled = false;
+
+    } else if (status === "unavailable") {
+        note.textContent = "❌ غير متوفر";
+        button.disabled = true;
+        button.style.opacity = "0.5";
+
+    } else if (status === "coming") {
+        note.textContent = "⏳ سيتوفر قريبًا";
+        button.disabled = true;
+        button.style.opacity = "0.5";
+    }
+});
