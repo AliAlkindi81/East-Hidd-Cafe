@@ -401,36 +401,3 @@ body {
     left: 20px;
     font-size: 30px;
 }
-
-.image-container {
-    position: relative;
-}
-
-.image-container img {
-    width: 100%;
-    display: block;
-}
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0,0,0,0.6);
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 18px;
-    font-weight: bold;
-}
-
-/* تعطيل الشكل */
-.out-of-stock {
-    opacity: 0.7;
-}
-
-.out-of-stock button {
-    cursor: not-allowed;
-}
