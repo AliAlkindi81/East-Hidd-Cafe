@@ -7,17 +7,13 @@ body {
 }
 
 /* HEADER */
-/* ===== HEADER ===== */
 .header {
     display: flex;
     align-items: center;
     justify-content: center;
-    /* logo in center */
     padding: 15px 20px;
     background: #ffffffcc;
-    /* semi-transparent white for modern look */
     backdrop-filter: blur(5px);
-    /* subtle blur effect */
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     position: sticky;
     top: 0;
@@ -25,7 +21,6 @@ body {
     flex-wrap: wrap;
 }
 
-/* Menu icon on the left */
 .menu-icon {
     position: absolute;
     left: 20px;
@@ -36,7 +31,6 @@ body {
     color: #333;
 }
 
-/* Right-side icons: social, date, contact, cart */
 .header-right {
     position: absolute;
     right: 20px;
@@ -47,14 +41,11 @@ body {
     gap: 15px;
 }
 
-/* Logo in center, slightly bigger */
 .header-logo {
     height: 60px;
-    /* bigger logo */
     z-index: 1;
 }
 
-/* Social media icon */
 .social-media a {
     font-size: 22px;
     text-decoration: none;
@@ -65,7 +56,6 @@ body {
     transform: scale(1.3);
 }
 
-/* Today's date */
 .today-date {
     font-size: 14px;
     color: #555;
@@ -74,7 +64,6 @@ body {
     border-radius: 15px;
 }
 
-/* Contact link */
 .contact-link {
     text-decoration: none;
     color: #ff6600;
@@ -90,21 +79,6 @@ body {
     color: white;
 }
 
-/* Cart */
-.cart {
-    font-size: 22px;
-    cursor: pointer;
-}
-
-#cart-count {
-    background: red;
-    color: white;
-    padding: 3px 7px;
-    border-radius: 50%;
-    font-size: 12px;
-}
-
-/* Cart */
 .cart {
     font-size: 20px;
     cursor: pointer;
@@ -116,43 +90,6 @@ body {
     padding: 3px 7px;
     border-radius: 50%;
     font-size: 12px;
-}
-
-/* Social Media */
-.social-media a {
-    font-size: 20px;
-    text-decoration: none;
-    margin: 0 5px;
-    transition: transform 0.2s;
-}
-
-.social-media a:hover {
-    transform: scale(1.2);
-}
-
-/* Today Date */
-.today-date {
-    font-size: 14px;
-    color: #333;
-    padding: 5px 10px;
-    background: #f2f2f2;
-    border-radius: 15px;
-}
-
-/* Contact Link */
-.contact-link {
-    text-decoration: none;
-    color: #ff6600;
-    font-weight: bold;
-    padding: 5px 10px;
-    border: 1px solid #ff6600;
-    border-radius: 15px;
-    transition: background 0.2s, color 0.2s;
-}
-
-.contact-link:hover {
-    background: #ff6600;
-    color: white;
 }
 
 /* SLIDER */
@@ -236,27 +173,11 @@ body {
     margin-top: 40px;
 }
 
-/* MENU IMAGES RESPONSIVE */
-.item img {
-    width: 100%;
-    /* full width of its container */
-    max-width: 120px;
-    /* optional: limit max width */
-    height: auto;
-    /* maintain aspect ratio */
-    border-radius: 10px;
-    object-fit: cover;
-    /* fill the container nicely */
-    cursor: pointer;
-    flex-shrink: 0;
-    /* prevent shrinking */
-}
-
-/* Make .item flex wrap if screen is small */
+/* ITEMS */
 .item {
+    position: relative; /* 🔥 مهم للـ overlay */
     display: flex;
     flex-wrap: wrap;
-    /* allow items to wrap on small screens */
     gap: 15px;
     background: white;
     padding: 10px;
@@ -264,14 +185,21 @@ body {
     margin-bottom: 15px;
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
     align-items: center;
-    /* vertically center content */
 }
 
-/* Item-info adjusts */
+.item img {
+    width: 100%;
+    max-width: 120px;
+    height: auto;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
 .item-info {
     flex: 1;
     min-width: 150px;
-    /* ensures info doesn’t shrink too much */
 }
 
 .item-bottom {
@@ -281,15 +209,6 @@ body {
     margin-top: 10px;
 }
 
-/* Improve description font */
-.item-desc {
-    font-family: 'Cairo', sans-serif;
-    font-size: 15px;
-    color: #333;
-    line-height: 1.4;
-}
-
-/* Notes styling */
 .item-note {
     display: block;
     margin-top: 5px;
@@ -298,7 +217,29 @@ body {
     color: #ff6600;
 }
 
-/* Lightbox popup */
+/* 🔥 OVERLAY */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 18px;
+    font-weight: bold;
+
+    border-radius: 10px;
+    z-index: 5;
+}
+
+/* LIGHTBOX */
 .lightbox {
     display: none;
     position: fixed;
@@ -352,7 +293,7 @@ body {
     font-weight: bold;
 }
 
-/* ADD TO CART BUTTON */
+/* ADD TO CART */
 .add-to-cart {
     background: #ff6600;
     color: white;
@@ -367,7 +308,6 @@ body {
 }
 
 /* SIDE MENU */
-
 .side-menu {
     height: 100%;
     width: 0;
