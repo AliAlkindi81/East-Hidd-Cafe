@@ -159,7 +159,7 @@ document.querySelectorAll('.item').forEach(item => {
 
     // الحالة الافتراضية (إذا ما فيه status)
     if (!status || status === "available") {
-        if (note) note.textContent = "علي";
+        if (note) note.textContent = "";
         if (button) {
             button.disabled = false;
             button.style.opacity = "1";
